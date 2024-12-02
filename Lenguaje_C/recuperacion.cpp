@@ -29,6 +29,7 @@ cout << n1<< " * " <<n2 << " = " << n1*n2 << endl;
  else
  cout << n1<< " / " <<n2 << " = " << n1/n2<< endl;
     break;
-
+default:
+cout << "operacion invalida" << endl; 
 }
 }
