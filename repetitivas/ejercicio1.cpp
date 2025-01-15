@@ -21,7 +21,7 @@ main ()
                     }
                     else { limiteInferior = true; limiteSuperior = true; }
         while (numero !=0)
-        cout << "la suman de los numeros fuera  del intervalo es:" 
+        cout << "la suman de los numeros fuera  del intervalo es:";
     }
 
 }

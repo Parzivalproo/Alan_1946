@@ -14,7 +14,7 @@ main (){
     cin >> num1;
     cout << "Ingrese el segundo numero: ";
     cin >> num2;
-    operaciones (num1, num2, suma, resta, multiplicacion, division, residuo);
+    operaciones (num1, num2, suma, resta, multiplicacion, division, resultado);
     cout << "La suma es: " << suma << endl;
     cout << "La resta es: " << resta << endl;
     cout << "La multiplicacion es: " << multiplicacion << endl;
