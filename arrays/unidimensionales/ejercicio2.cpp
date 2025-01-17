@@ -52,7 +52,6 @@ int main () {
     cout << "\nEl promedio de los datos generados es= "<< promedioNumeros <<endl;
     menores = contarDebajoPromedio (vector, ne, promedioNumeros);
     cout << "La cantidad de elementos debajo del promedio son: " << menores <<endl;
-    cout << "Los elementos son: "<< endl;
     int listaMenores [menores];
     guardaElementosmenores (vector, ne, promedioNumeros, listaMenores);
     verDatos (listaMenores, menores);
