@@ -19,15 +19,7 @@ void llenaDatos(int tabla[][max], int f, int c) {
         }
     }
 }
-void imprimeTabla(int tabla [][max], int f, int c){
-for (int i = 0; i < f; i++){
-    for (int j=0 ;j<c;j++){
-cout << tabla [i][j]<< "\t";
-        }
-        cout <<endl;
-    }
-}
-void sumaDiagonalPrincipal(int tabla [][max], int f, int c){
+int sumaDiagonalPrincipal(int tabla [][max], int f, int c){
 int suma=0;
 for (int i = 0; i < f; i++){
     for (int j=0 ;j<c;j++){
@@ -36,9 +28,9 @@ for (int i = 0; i < f; i++){
         }
 }
 }
-cout<< suma<< endl;
+return suma;
 }
-void sumaDiagonalSecundaria(int tabla [][max], int f, int c){
+int sumaDiagonalSecundaria(int tabla [][max], int f, int c){
 int suma=0;
 for (int i = 0; i < f; i++){
     for (int j=0 ;j<c;j++){
@@ -47,19 +39,40 @@ for (int i = 0; i < f; i++){
         }
 }
 }
-cout<< suma<< endl;
+return suma;
+}
+void imprimeDiagonales(int tabla [][max], int f, int c){
+    for (int i = 0; i < f; i++){
+        for (int j=0 ;j<c;j++){
+            if (i==j || i+j==c-1){
+                cout << tabla [i][j] << "\t";
+            } else {
+                cout << "\t";
+            }
+        }
+        cout <<endl;
+    }
+}
+void diagonalMayor(int tabla [][max], int f, int c){
+    int sumaPrincipal = sumaDiagonalPrincipal(tabla, f, c);
+    int sumaSecundaria = sumaDiagonalSecundaria(tabla, f, c);
+    if (sumaPrincipal == sumaSecundaria){
+        cout << "Las diagonales son iguales\n";
+    } else if (sumaPrincipal > sumaSecundaria){
+        cout << "La diagonal principal es mayor\n";
+    } else {
+        cout << "La diagonal secundaria es mayor\n";
+    }
 }
 int main ()
 {
     int tabla [max][max], filas , columnas, opcion;
     cout << "Ingrese el numero de filas y columnas de la tabla: ";
-    cin >> filas >> columnas;
-
-        cout << "Elija una opcion para llenar la tabla:\n";
+    cin >> filas >> columnas; 
         cout << "1. Llenado manual\n";
         cout << "2. Llenado aleatorio\n";
+        cout << "Elija una opcion para llenar la tabla:";
         cin >> opcion;
-
         switch (opcion) {
             case 1:
                 llenaTabla(tabla, filas, columnas);
@@ -71,11 +84,9 @@ int main ()
                 cout << "Opcion no valida. Intente de nuevo.\n";
               return 1;
     }
-   imprimeTabla (tabla, filas, columnas);
-   cout << "La suma de la diagonal principal es: "; 
-   sumaDiagonalPrincipal(tabla, filas, columnas);
-   cout << "La suma de la diagonal secundaria es: "; 
-   sumaDiagonalSecundaria(tabla, filas, columnas);
-   
+    imprimeDiagonales(tabla, filas, columnas);
+   cout << "La suma de la diagonal principal es: " << sumaDiagonalPrincipal(tabla, filas, columnas) << endl;
+cout << "La suma de la diagonal secundaria es: "<< sumaDiagonalSecundaria(tabla, filas, columnas) << endl;
+    diagonalMayor(tabla, filas, columnas);
 return 0;
 }
