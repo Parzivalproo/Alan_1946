@@ -28,21 +28,28 @@ cout << tabla [i][j]<< "\t";
     }
 }
 void sumaDiagonalPrincipal(int tabla [][max], int f, int c){
-int suma;
+int suma=0;
 for (int i = 0; i < f; i++){
     for (int j=0 ;j<c;j++){
         if (i==j){
             suma += tabla [i][j];
-            cout << suma;
         }
 }
-cout<< endl;
+}
+cout<< suma<< endl;
+}
+void sumaDiagonalSecundaria(int tabla [][max], int f, int c){
+int suma=0;
+for (int i = 0; i < f; i++){
+    for (int j=0 ;j<c;j++){
+        if (i+j==c-1){
+            suma += tabla [i][j];
+        }
 }
 }
-void sumaDiagonalSecundaria(){
-
+cout<< suma<< endl;
 }
-main ()
+int main ()
 {
     int tabla [max][max], filas , columnas, opcion;
     cout << "Ingrese el numero de filas y columnas de la tabla: ";
@@ -62,9 +69,13 @@ main ()
                 break;
             default:
                 cout << "Opcion no valida. Intente de nuevo.\n";
-        break;
+              return 1;
     }
    imprimeTabla (tabla, filas, columnas);
    cout << "La suma de la diagonal principal es: "; 
    sumaDiagonalPrincipal(tabla, filas, columnas);
+   cout << "La suma de la diagonal secundaria es: "; 
+   sumaDiagonalSecundaria(tabla, filas, columnas);
+   
+return 0;
 }
