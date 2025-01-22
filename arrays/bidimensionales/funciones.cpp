@@ -15,8 +15,16 @@ void llenaDatos(int tabla[][max], int f, int c) {
     srand(time(NULL));
     for (int i = 0; i < f; i++) {
         for (int j = 0; j < c; j++) {
-            tabla[i][j] = (rand() % 20 + 1);
+            tabla[i][j] = (rand() % 11 + 10);
         }
+    }
+}
+void imprimeTabla(int tabla [][max], int f, int c){
+for (int i = 0; i < f; i++){
+    for (int j=0 ;j<c;j++){
+cout << tabla [i][j]<< "\t";
+        }
+        cout <<endl;
     }
 }
 int sumaDiagonalPrincipal(int tabla [][max], int f, int c){
@@ -84,9 +92,11 @@ int main ()
                 cout << "Opcion no valida. Intente de nuevo.\n";
               return 1;
     }
-    imprimeDiagonales(tabla, filas, columnas);
+    imprimeTabla(tabla, filas, columnas);
    cout << "La suma de la diagonal principal es: " << sumaDiagonalPrincipal(tabla, filas, columnas) << endl;
 cout << "La suma de la diagonal secundaria es: "<< sumaDiagonalSecundaria(tabla, filas, columnas) << endl;
     diagonalMayor(tabla, filas, columnas);
+    imprimeDiagonales(tabla, filas, columnas);
+
 return 0;
 }
