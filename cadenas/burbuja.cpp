@@ -2,54 +2,42 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-
-void llenaVector(int v[], int n) {
-    srand(time(NULL));
-    for (int i = 0; i < n; i++) {
-        v[i] = rand() % 100 + 1;
+void llenarVector(int v[], int n){
+        srand(time(NULL));
+        for(int i=0; i<n; i++){
+        //v[i]=rand()%20+1;
+        cin >> v[i];
+        }
     }
-}
-
-void ordenaBurbuja(int v[], int n) {
-    int aux;
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (v[j] > v[j + 1]) {
+int ordenarBurbuja(int v[], int n){
+    int aux, contador= 0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n-1;j++){
+            contador++;
+            if( v[j]>v[j+1]){
                 aux = v[j];
-                v[j] = v[j + 1];
-                v[j + 1] = aux;
+                v[j]=v[j+1];
+                v[j+1]=aux;
             }
         }
     }
+    return contador;
 }
-
-void muestraVector(int v[], int n) {
-    for (int i = 0; i < n; i++) {
-        cout << v[i] << " ";
+void mostrarVector(int v[], int n){
+    for(int i=0; i<n;i++){
+        cout << v[i]<<" ";
     }
-    cout << endl;
 }
-
-int main() {
+main(){
     int ne;
-    cout << "Cuantos elementos tiene el vector?: ";
-    cin >> ne;
-
-    if (ne <= 0) {
-        cout << "El numero de elementos debe ser mayor que cero." << endl;
-        return 1;
-    }
-
-    int vector[ne];
-    llenaVector(vector, ne);
-
-    cout << "Vector original: ";
-    muestraVector(vector, ne);
-
-    ordenaBurbuja(vector, ne);
-
-    cout << "Vector ordenado: ";
-    muestraVector(vector, ne);
-
-    return 0;
+    cout << "Numero de elemntos: ";
+    cin>>ne;
+    int vec[ne];
+    llenarVector(vec,ne);
+    cout<<"Vector original: ";
+    mostrarVector(vec,ne);
+    cout<<endl;
+    cout << "El # de comparaciones burbuja v1: "<<ordenarBurbuja(vec,ne)<<endl;
+    cout<< "Vector ordenado: "<<endl;
+    mostrarVector(vec,ne);
 }
