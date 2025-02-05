@@ -4,17 +4,19 @@
 #include "../../librerias/arrays.h"
 using namespace std;
 using namespace vectorn;
+using namespace ordenarV;
 bool isBusquedaBinaria(int v[], int n, int elemento) {
-    int izquierda = 0;
-    int derecha = n - 1;
-    for (int i = 0; i <= derecha; i++) {
-        int centro = (izquierda + derecha) / 2;
+    int arriba, abajo, centro;
+     abajo = 0;
+     arriba = n - 1;
+     while (abajo <= arriba) {
+        centro = (abajo + arriba) / 2;
         if (v[centro] == elemento) {
             return true;
         } else if (v[centro] < elemento) {
-            izquierda = centro + 1;
+            abajo = centro + 1;
         } else {
-            derecha = centro - 1;
+            arriba = centro - 1;
         }
     }
     return false;

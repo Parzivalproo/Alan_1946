@@ -17,8 +17,8 @@ void mostrarVector(int v[], int n) {
     cout << v[i] << "\t";
     }
 }
-
-int ordenarSeleccion(int v[], int n) {
+namespace ordenarV {
+    int ordenarSeleccion(int v[], int n) {
     int contador = 0, aux;
     bool cambio = true;
     for (int i = 0; i < n-1 && cambio; i++) {
@@ -102,4 +102,5 @@ int ordenarInsersion(int v[], int n) {
     }
 }
 return contador;
+}
 }
