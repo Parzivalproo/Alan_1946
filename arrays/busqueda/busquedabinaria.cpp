@@ -1,8 +1,9 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include "../ordenamiento/seleccion.cpp"
+#include "../../librerias/arrays.h"
 using namespace std;
+using namespace vectorn;
 bool isBusquedaBinaria(int v[], int n, int elemento) {
     int izquierda = 0;
     int derecha = n - 1;
