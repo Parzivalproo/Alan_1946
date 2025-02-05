@@ -1,3 +1,4 @@
+//Alan Jireth Sanchez Loor
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
