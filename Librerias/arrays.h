@@ -104,3 +104,19 @@ int ordenarInsersion(int v[], int n) {
 return contador;
 }
 }
+bool isBusquedaBinaria(int v[], int n, int elemento) {
+    int arriba, abajo, centro;
+     abajo = 0;
+     arriba = n - 1;
+     while (abajo <= arriba) {
+        centro = (abajo + arriba) / 2;
+        if (v[centro] == elemento) {
+            return true;
+        } else if (v[centro] < elemento) {
+            abajo = centro + 1;
+        } else {
+            arriba = centro - 1;
+        }
+    }
+    return false;
+}

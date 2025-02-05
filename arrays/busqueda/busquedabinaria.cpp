@@ -1,6 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 #include "../../librerias/arrays.h"
 using namespace std;
 using namespace vectorn;
