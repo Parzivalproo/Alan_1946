@@ -24,5 +24,14 @@ main()
     cout << "Tamano maxino: "<<cadena1.max_size()<<endl;
     //tamaño en bytes del objeto string
     cout << "Capacidad: "<<cadena1.capacity()<<endl;
-
+    //usando el metodo compare para comparar 2 cadenas
+    cout <<"cadena1=" << cadena1 <<" cadena2="<< cadena2 <<endl;
+    cadena1="Hola";
+    cadena2="txyz";
+    int comparacion = cadena1.compare(cadena2);
+    cout << "comparacion: "<< comparacion<<endl;
+    int encontrado = cadena1.find("o");
+    cout << "encontrado: "<< encontrado<<endl;
+    (cadena1.find("o") == string::npos)?cout<<"No se encontro":cout<<"Se encontro"<<endl;
+    
 }

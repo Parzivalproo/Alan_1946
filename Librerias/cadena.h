@@ -40,11 +40,4 @@ int contarPalabras(char cad[]) {
     return palabras;
 }
 
-int main() {
-    char palabras[50];
-    llenarCadena(palabras);
-    std::cout << "La cadena ingresada es: " << palabras << std::endl;
-    std::cout << "La longitud de la cadena es: " << longitudCadena(palabras) << std::endl;
-    std::cout << "La cantidad de palabras es: " << contarPalabras(palabras) << std::endl;
-}
 }
