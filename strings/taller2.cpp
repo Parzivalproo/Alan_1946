@@ -33,5 +33,10 @@ main()
     int encontrado = cadena1.find("o");
     cout << "encontrado: "<< encontrado<<endl;
     (cadena1.find("o") == string::npos)?cout<<"No se encontro":cout<<"Se encontro"<<endl;
+    string numerostr= "1234";
+    int numero = stoi (numerostr);
+    cout << endl;
+    cout << numero<<endl;
+    cin >> numero;
     
 }
