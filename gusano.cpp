@@ -24,27 +24,39 @@ public:
     }
 
     void generateFood() {
-        food.x = rand() % width;
-        food.y = rand() % height;
+        do {
+            food.x = rand() % (width - 2) + 1;
+            food.y = rand() % (height - 2) + 1;
+        } while (isFoodOnSnake());
+    }
+
+    bool isFoodOnSnake() {
+        for (auto &p : snake) {
+            if (p.x == food.x && p.y == food.y)
+                return true;
+        }
+        return false;
     }
 
     void draw() {
         system("cls");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                bool printed = false;
-                if (i == food.y && j == food.x) {
+                if (i == 0 || i == height - 1 || j == 0 || j == width - 1) {
+                    cout << "#";
+                } else if (i == food.y && j == food.x) {
                     cout << "X";
-                    printed = true;
-                }
-                for (auto &p : snake) {
-                    if (p.x == j && p.y == i) {
-                        cout << "O";
-                        printed = true;
-                        break;
+                } else {
+                    bool printed = false;
+                    for (auto &p : snake) {
+                        if (p.x == j && p.y == i) {
+                            cout << "O";
+                            printed = true;
+                            break;
+                        }
                     }
+                    if (!printed) cout << " ";
                 }
-                if (!printed) cout << " ";
             }
             cout << endl;
         }
@@ -67,7 +79,7 @@ public:
         else if (direction == 'a') newHead.x--;
         else if (direction == 'd') newHead.x++;
 
-        if (newHead.x < 0 || newHead.x >= width || newHead.y < 0 || newHead.y >= height) {
+        if (newHead.x == 0 || newHead.x == width - 1 || newHead.y == 0 || newHead.y == height - 1) {
             gameOver = true;
             return;
         }
